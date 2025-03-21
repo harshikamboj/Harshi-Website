@@ -30,86 +30,37 @@ export const Skills = () => {
                         <div className="skill-bx wow zoomIn">
                             <h2>Technical Skills</h2>
                             <p>
-                                I have built a strong technical foundation that allows me to craft both robust and
-                                user-centric solutions. By blending clean code practices, thoughtful architecture,
-                                and intuitive design, I strive to deliver impactful digital experiences that meet
-                                modern standards. Below is a selection of the core skills and tools I rely on to
-                                bring projects to life.
+                                I have built a strong technical foundation that allows me to craft both robust and user-centric solutions.
+                                By blending clean code practices, thoughtful architecture, and intuitive design, I strive to deliver impactful digital experiences
+                                that meet modern standards. Below is a selection of the core skills and tools I rely on to bring projects to life.
                             </p>
-                            <Carousel
-                                responsive={responsive}
-                                infinite
-                                className="owl-carousel owl-theme skill-slider"
-                            >
-                                <div className="item">
-                                    <h3>Java</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Python</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>C/C++</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>SQL</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>JavaScript</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>HTML</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>CSS</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Assembly</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>React</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Node.js</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>WordPress</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Ruby on Rails</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Expo</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Typescript</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Git</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>VS Code</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Unity</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>TinkerCad</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Figma</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Balsamiq</h3>
-                                </div>
-                                <div className="item">
-                                    <h3>Adobe CC</h3>
-                                </div>
+                            <Carousel responsive={responsive} infinite className="owl-carousel owl-theme skill-slider">
+                                <div className="item"><h3>Java</h3></div>
+                                <div className="item"><h3>Python</h3></div>
+                                <div className="item"><h3>C/C++</h3></div>
+                                <div className="item"><h3>SQL</h3></div>
+                                <div className="item"><h3>JavaScript</h3></div>
+                                <div className="item"><h3>HTML</h3></div>
+                                <div className="item"><h3>CSS</h3></div>
+                                <div className="item"><h3>Assembly</h3></div>
+                                <div className="item"><h3>React</h3></div>
+                                <div className="item"><h3>Node.js</h3></div>
+                                <div className="item"><h3>WordPress</h3></div>
+                                <div className="item"><h3>Ruby on Rails</h3></div>
+                                <div className="item"><h3>Expo</h3></div>
+                                <div className="item"><h3>Typescript</h3></div>
+                                <div className="item"><h3>Git</h3></div>
+                                <div className="item"><h3>VS Code</h3></div>
+                                <div className="item"><h3>Unity</h3></div>
+                                <div className="item"><h3>TinkerCad</h3></div>
+                                <div className="item"><h3>Figma</h3></div>
+                                <div className="item"><h3>Balsamiq</h3></div>
+                                <div className="item"><h3>Adobe CC</h3></div>
                             </Carousel>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* alt="" removes the "redundant alt" warning */}
             <img className="background-image-left" src={colorSharp} alt="" />
         </section>
     );

@@ -14,7 +14,6 @@ export const Footer = () => {
             </Col>
             <Col size={12} sm={6} className="text-center text-sm-end">
               <div className="social-icon">
-                {/* Replace '#' with real links: */}
                 <a
                     href="https://www.linkedin.com/in/harshikamboj/"
                     target="_blank"

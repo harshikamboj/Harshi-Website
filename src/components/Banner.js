@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-// import { ArrowRightCircle } from 'react-bootstrap-icons'; // Removed - unused
+// Removed unused: import { ArrowRightCircle } from 'react-bootstrap-icons';
 import headerImg from "../assets/img/header-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -10,20 +10,10 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  // const [index, setIndex] = useState(1); // Removed - never actually used
-  const toRotate = [ "Creative", "Innovative", "Passionate" ];
+  const toRotate = ["Creative", "Innovative", "Passionate"];
   const period = 2000;
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => clearInterval(ticker);
-    // Add 'delta' to dependencies so the effect re-runs if delta changes
-  }, [text, delta]);
-
-  const tick = () => {
+  const tick = useCallback(() => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting
@@ -33,22 +23,25 @@ export const Banner = () => {
     setText(updatedText);
 
     if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
+      setDelta(prevDelta => prevDelta / 2);
     }
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      // removed: setIndex((prevIndex) => prevIndex - 1);
       setDelta(period);
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      // removed: setIndex(1);
       setDelta(500);
-    } else {
-      // removed: setIndex((prevIndex) => prevIndex + 1);
     }
-  };
+  }, [loopNum, isDeleting, text, period, toRotate]);
+
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+    return () => clearInterval(ticker);
+  }, [delta, tick]);
 
   return (
       <section className="banner" id="home">
@@ -62,7 +55,11 @@ export const Banner = () => {
                       <h1>{`Hey! I'm Harshi`}</h1>
                       <h1>
                         {`I Am `}
-                        <span className="txt-rotate" dataPeriod="1000" data-rotate='["Creative", "Innovative", "Passionate"]'>
+                        <span
+                            className="txt-rotate"
+                            dataPeriod="1000"
+                            data-rotate='["Creative", "Innovative", "Passionate"]'
+                        >
                       <span className="wrap">{text}</span>
                     </span>
                       </h1>

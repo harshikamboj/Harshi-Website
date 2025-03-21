@@ -1,16 +1,16 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-// Removed unused: import { ArrowRightCircle } from 'react-bootstrap-icons';
 import headerImg from "../assets/img/header-img.svg";
 import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Creative", "Innovative", "Passionate"];
+  // Wrap the toRotate array in useMemo so it remains stable across renders
+  const toRotate = useMemo(() => ["Creative", "Innovative", "Passionate"], []);
   const period = 2000;
 
   const tick = useCallback(() => {
@@ -40,6 +40,7 @@ export const Banner = () => {
     let ticker = setInterval(() => {
       tick();
     }, delta);
+
     return () => clearInterval(ticker);
   }, [delta, tick]);
 
